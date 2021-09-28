@@ -23,14 +23,12 @@ def load_model():
     acc = accuracy_score(y_test, clf.predict(X_test))
     print(f"Model trained with accuracy: {round(acc, 3)}")
 
-
 # function to predict the flower using the model
 def predict(query_data):
     x = list(query_data.dict().values())
     prediction = clf.predict([x])[0]
     print(f"Model prediction: {classes[prediction]}")
     return classes[prediction]
-
 
 # function to retrain the model as part of the feedback loop
 def retrain(data):
